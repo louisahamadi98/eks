@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: nginx
+  labels:
+    app: louisa
+spec:
+  selector:
+    matchLabels:
+      app: louisa
+  template:
+    metadata:
+      labels:
+        app: louisa
+    spec:
+      containers:
+      - name: louisa
+        image: public.ecr.aws/g7l4n5q7/lhamadi:1.0
+        ports:
+        - containerPort: 80
